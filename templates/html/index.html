@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +10,8 @@
 <body>
     {% for album in albums %}
     {{album}}
-    {% endfor%}
+    {% endfor %}
+
+<p><a href="/artists">Artists</a></p>
 </body>
 </html>
