@@ -1,13 +1,18 @@
 {% extends 'html/base.html' %}
 
-
 {% block content %}
-<h2>Django Music Collab</h2>
-<br>
+
 <nav id="nav">   
     <a href="{% url 'home' %}">Home</a>
     <a href="{% url 'artists' %}">Artists</a>
     <a href="{% url 'album-list' %}">Albums</a>
 </nav>
 <br>
+<div class="info">
+<h1>{{ artist.name }}
+<br>
+<p>Genre: {{ artist.genre }}
+<p>Artist Biography: {{ artist.biography }}
+</div>
+
 {% endblock content %}

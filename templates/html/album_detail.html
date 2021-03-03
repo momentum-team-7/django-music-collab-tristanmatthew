@@ -1,0 +1,33 @@
+{% extends 'html/base.html' %}
+
+{% block content %}
+<nav id="nav">   
+    <a href="{% url 'home' %}">Home</a>
+    <a href="{% url 'artists' %}">Artists</a>
+    <a href="{% url 'album-list' %}">Albums</a>
+</nav>
+<br>
+<div class="info">
+    {% if album.album_img %}
+        <div id="albumImg">
+            <img src="{{album.album_img}}" alt="{{ album.title }}">
+        </div>
+    {% endif %}
+
+    <h2>{{album}}</h2>
+    <ul>
+        <li>{{album.title}}</li>
+        <li>{{album.artist}}</li>
+        {% if album.release_year %}
+            <li>{{album.release_year}}</li>
+        {% endif %}
+        {% if album.produced_by %}
+            <li>{{album.produced_by}}</li>
+        {% endif %}
+        {% if album.mixed_by %}
+            <li>{{album.mixed_by}}</li>
+        {% endif %}
+    </ul>
+</div>
+
+{% endblock content %}
