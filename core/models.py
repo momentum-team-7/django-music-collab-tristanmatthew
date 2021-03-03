@@ -13,10 +13,11 @@ class Album(models.Model):
     produced_by = models.CharField(max_length=100, blank=True, null=True)
     mixed_by = models.CharField(max_length=100, blank=True, null=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True, related_name="albums")
+    image = models.ImageField(upload_to='images/', blank=True, null=True)
 
 
     def __str__(self):
-        return f"{self.title} | {self.artist} | {str(self.release_year)} | {self.label} | {self.produced_by} | {self.mixed_by}"
+        return f"{self.image} {self.title} | {self.artist} | {str(self.release_year)} | {self.label} | {self.produced_by} | {self.mixed_by}"
 
 class Artist(models.Model):
     artist = models.CharField(max_length=280)
@@ -27,10 +28,3 @@ class Artist(models.Model):
 
     def __str__(self):
         return f"{self.artist} | {self.name} | {self.genre} | {self.biography}"
-
-class Image(models.Model):
-    title = models.CharField(max_length=280)
-    image = models.ImageField(upload_to='images')
-
-    def __str__(self):
-        return self.title

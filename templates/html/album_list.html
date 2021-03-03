@@ -1,15 +1,18 @@
 {% extends 'html/base.html' %}
 
 {% block content %}
-<nav id="nav">   
-    <a href="{% url 'home' %}">Home</a>
-    <a href="{% url 'artists' %}">Artists</a>
-    <a href="{% url 'album-list' %}">Albums</a>
-</nav>
+<div class="navdiv">
+    <nav id="nav">   
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'artists' %}">Artists</a>
+        <a href="{% url 'album-list' %}">Albums</a>
+    </nav>
+</div>
 <br>
-
+<h1>Albums</h1>
+<h3>Click Album for more info!</h3>
 {% for album in albums %}
-<li><a href="{% url 'album-detail' album.pk %}">{{album}}</a></li>
+<li>{{ album.artist.artist }} - <a href="{% url 'album-detail' album.pk %}">{{ album.title }}</a> || <a href="{% url 'edit-album' pk=album.pk%}" class="button is-warning is-focused">Edit Album</a> <a href="{% url 'delete-album' pk=album.pk%}" class="button is-warning is-focused">Delete Album</a><br></li>
 {% endfor %}
 
 {% endblock content %}

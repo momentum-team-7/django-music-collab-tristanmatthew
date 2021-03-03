@@ -1,14 +1,26 @@
 {% extends 'html/base.html' %}
 {% block content %}
 
-<nav id="nav">   
-    <a href="{% url 'home' %}">Home</a>
-    <a href="{% url 'artists' %}">Artists</a>
-    <a href="{% url 'album-list' %}">Albums</a>
-</nav>
+<div class="navdiv">
+    <nav id="nav">   
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'artists' %}">Artists</a>
+        <a href="{% url 'album-list' %}">Albums</a>
+    </nav>
+</div>
 <br>
 <h1>Artists</h1>
+<h3>Click Artist for more info!</h3>
     {% for artist in artists %}
-    <p><a href="{% url 'artist-detail' pk=artist.pk %}">{{ artist.name }}</a></p>
+        <li><a href="{% url 'artist-detail' pk=artist.pk %}">{{ artist.artist }}</a> || <a href="{% url 'edit-artist' pk=artist.pk%}" class="button is-warning is-focused">Edit Artist</a> <a href="{% url 'delete-artist' pk=artist.pk%}" class="button is-warning is-focused">Delete Artist</a><br></li>
     {% endfor %}
+    <br>
+<div class="add">
+    <div class="add-artist">
+        <a href="/artists/new">Add an Artist</a>
+    </div>
+    <div class="add-album">
+        <a href="/albums/new">Add an Album</a>
+    </div>
+</div>
 {% endblock content %}

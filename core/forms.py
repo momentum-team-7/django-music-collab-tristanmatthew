@@ -1,8 +1,13 @@
 from django import forms
-from .models import Image
+from .models import Artist, Album
 
-class Image_Form(forms.ModelForm):
-    """Form for the image model """
+
+class ArtistForm(forms.ModelForm):
     class Meta:
-        model = Image
-        fields = ('title', 'image')
+        model = Artist
+        fields = ['artist', 'genre']
+
+class AlbumForm(forms.ModelForm):
+    class Meta:
+        model = Album
+        fields = ['image', 'title', 'artist', 'label', 'release_year', 'produced_by', 'mixed_by']

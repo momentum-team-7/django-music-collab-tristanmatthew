@@ -2,12 +2,22 @@
 
 
 {% block content %}
-<h2>Django Music Collab</h2>
+<h1>Django Music Collab</h1>
+<h3>Click on Artists/Albums to explore, or add your own!</h3>
 <br>
-<nav id="nav">   
-    <a href="{% url 'home' %}">Home</a>
-    <a href="{% url 'artists' %}">Artists</a>
-    <a href="{% url 'album-list' %}">Albums</a>
-</nav>
-<br>
+<div class="navdiv">
+    <nav id="nav">   
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'artists' %}">Artists</a>
+        <a href="{% url 'album-list' %}">Albums</a>
+    </nav>
+</div>
+<div class="add">
+    <div class="add-artist">
+        <a href="/artists/new">Add an Artist</a>
+    </div>
+    <div class="add-album">
+        <a href="/albums/new">Add an Album</a>
+    </div>
+</div>
 {% endblock content %}
