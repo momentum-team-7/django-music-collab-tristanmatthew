@@ -1,16 +1,20 @@
 {% extends 'html/base.html' %}
 
 {% block content %}
-<div class="navdiv">
+{% comment %} <div class="navdiv">
     <nav id="nav">   
         <a href="{% url 'home' %}">Home</a>
         <a href="{% url 'artists' %}">Artists</a>
         <a href="{% url 'album-list' %}">Albums</a>
     </nav>
-</div>
+</div> {% endcomment %}
+<br>
+<center>
+<h1>Add an Album here</h1>
 <form action="{% url 'add-album' %}" method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
     <input type="submit" value="Submit">
 </form>
+</center>
 {% endblock content %}

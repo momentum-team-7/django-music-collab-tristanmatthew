@@ -9,6 +9,7 @@
     </nav>
 </div>
 <br>
+<center>
 <div class="info">
     {% if album.image %}
         <div id="albumImg">
@@ -30,5 +31,14 @@
         {% endif %}
     </ul>
 </div>
-
+<br>
+<div class="add">
+    <div class="btn btn-primary btn-large">
+        <a href="/artists/new">Add an Artist</a>
+    </div>
+    <div class="btn btn-primary btn-large">
+        <a href="/albums/new">Add an Album</a>
+    </div>
+</div>
+</center>
 {% endblock content %}

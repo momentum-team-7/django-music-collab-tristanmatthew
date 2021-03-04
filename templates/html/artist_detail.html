@@ -2,27 +2,29 @@
 
 {% block content %}
 
-<div class="navdiv">
+{% comment %} <div class="navdiv">
     <nav id="nav">   
         <a href="{% url 'home' %}">Home</a>
         <a href="{% url 'artists' %}">Artists</a>
         <a href="{% url 'album-list' %}">Albums</a>
     </nav>
-</div>
+</div> {% endcomment %}
 <br>
+<center>
 <div class="info">
 <h3>{{ artist.artist }}
 <br>
 <li>Genre: {{ artist.genre }}</li>
 <li>Artist Biography: {{ artist.biography }}</li>
 </div>
+<br>
 <div class="add">
-    <div class="add-artist">
+    <div class="btn btn-primary btn-large">
         <a href="/artists/new">Add an Artist</a>
     </div>
-    <div class="add-album">
+    <div class="btn btn-primary btn-large">
         <a href="/albums/new">Add an Album</a>
     </div>
 </div>
-
+</center>
 {% endblock content %}
